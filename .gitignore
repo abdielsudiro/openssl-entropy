@@ -1,3 +1,5 @@
 /openssl-0.9.8c-vuln/
-/private_key.bin
 /main
+/random_byte.bin
+/pkb2pkh
+/genrb

@@ -24,7 +24,7 @@ int main() {
     memcpy(entropy + sizeof(timestamp) + sizeof(pid), &mouseMovement, sizeof(mouseMovement));
 
     // Add entropy to OpenSSL's randomness pool
-    RAND_add(entropy, sizeof(entropy), 8.0);  // Entropy estimate of 8.0, adjust as needed
+    RAND_add(entropy, sizeof(entropy), 1.5);  // Entropy estimate of 8.0, adjust as needed
 
     // Generate 32 random bytes
     if (RAND_bytes(buffer, keySize) != 1) {
@@ -33,7 +33,7 @@ int main() {
     }
 
     // Open a file in binary mode
-    std::ofstream outFile("private_key.bin", std::ios::binary);
+    std::ofstream outFile("random_byte.bin", std::ios::binary);
     if (!outFile) {
         std::cerr << "Failed to open file for writing." << std::endl;
         return 1;
@@ -45,6 +45,6 @@ int main() {
     // Close the file
     outFile.close();
 
-    std::cout << "Private key saved to private_key.bin" << std::endl;
+    std::cout << "Random byte saved to random_byte.bin" << std::endl;
     return 0;
 }

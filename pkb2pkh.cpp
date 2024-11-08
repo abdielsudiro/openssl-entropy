@@ -10,9 +10,9 @@ int main() {
     unsigned char buffer[keySize];
 
     // Open the private key file in binary mode
-    std::ifstream inFile("private_key.bin", std::ios::binary);
+    std::ifstream inFile("random_byte.bin", std::ios::binary);
     if (!inFile) {
-        std::cerr << "Failed to open private_key.bin for reading." << std::endl;
+        std::cerr << "Failed to open random_byte.bin for reading." << std::endl;
         return 1;
     }
 
@@ -21,7 +21,7 @@ int main() {
     inFile.close();
 
     if (inFile.gcount() != keySize) {
-        std::cerr << "Error: private_key.bin does not contain a valid 32-byte private key." << std::endl;
+        std::cerr << "Error: random_byte.bin does not contain a valid 32-byte random byte." << std::endl;
         return 1;
     }
 
